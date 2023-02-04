@@ -54,6 +54,7 @@ def author_details(author,current_user=None):
 
     if author.first_name and author.last_name:
         name = f"{author.first_name} {author.last_name}"
+        #u can use format_html if not trusted
     else:
         name = f"{author.username}"
 
