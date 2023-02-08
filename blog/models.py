@@ -50,3 +50,25 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+#example for DB 
+class Resource(models.Model):
+    name = models.TextField()
+    cost = models.IntegerField()
+
+    def __str__(self):
+        return f"PK: {self.pk} Name: {self.name} Cost: {self.cost}"
+
+
+def get_test_resources(save_to_db=False):
+    # Do not change this function body
+    Resource.objects.all().delete()
+    resources = [
+        Resource(name="Res 1", cost=1),
+        Resource(name="Res 2", cost=2),
+        Resource(name="Res 3", cost=3),
+    ]
+
+    if save_to_db:
+        for res in resources:
+            res.save()
+    return resources

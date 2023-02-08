@@ -1,0 +1,10 @@
+{# Question 3: Load any libraries you need here #}
+{% load cache %}
+{# Question 3: Don't cache this first <h1> element #}
+<h1>The Uncached Time Is {% now "c" %}</h1>
+<div id="question3">
+    {# Question 3: Cache the contents of this div (not including the <div> or </div> tags) #}
+    {% cache 120 now %}
+    <h2>The Cached Time Was {% now "c" %}</h2>
+    {% endcache %}
+</div>

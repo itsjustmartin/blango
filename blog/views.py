@@ -60,3 +60,31 @@ def post_detail(request, slug):
 def get_ip(request):
   from django.http import HttpResponse
   return HttpResponse(request.META['REMOTE_ADDR'])
+
+def question3(request):
+    # Do not change this function body
+    return render(request, "question3.html")
+
+def question4(request):
+    test_resources = get_test_resources()
+
+    # Question 4: Add code to insert all test resources at once below
+    Resource.objects.bulk_create(test_resources)
+
+    return HttpResponse(", ".join(map(str, Resource.objects.all())))
+
+
+def question5(request):
+    test_resources = get_test_resources(save_to_db=True)
+
+    # Question 5: Add code to update all test resources then save with a bulk call below
+    # one way
+    # from django.db.models import F
+    # Resource.objects.all().update(cost=F('cost')+10)
+    #second
+    r = Resource.objects.all()
+    for res in r :
+        res.cost += 10
+    Resource.objects.bulk_update(r,['cost'])
+    return HttpResponse(", ".join(map(str, Resource.objects.all())))
+

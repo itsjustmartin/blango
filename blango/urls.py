@@ -30,6 +30,10 @@ urlpatterns = [
     path("", blog.views.index),
     path("post/<slug>/", blog.views.post_detail, name="blog-post-detail") ,
     path("ip/", blog.views.get_ip) ,
+    path("question3/", blog.views.question3),
+    path("question4/", blog.views.question4),
+    path("question5/", blog.views.question5),
+]
 
 ]
 
