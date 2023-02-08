@@ -15,6 +15,10 @@ social-auth-core
 django-extensions
 django-taggit
 
+django-configurations
+
+dj-database-url
+
 django[argon2]
 django-debug-toolbar
 
