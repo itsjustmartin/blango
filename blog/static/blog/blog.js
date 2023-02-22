@@ -1,21 +1,32 @@
-const doubler = x => x * 2 //lambda
-console.log(doubler(2))  // outputs 4
-
-function sayHello(yourName) {
-  if (yourName === undefined) {
-      console.log('Hello, no name')
-  } else {
-       console.log('Hello, ' + yourName)
+// third party side or lib (Promise Construction)
+const lazyAdd = function (a, b) {
+  const doAdd = (resolve, reject) => {
+    if (typeof a !== "number" || typeof b !== "number") {
+      reject("a and b must both be numbers")
+    } else {
+      const sum = a + b
+      resolve(sum)
+    }
   }
+
+  return new Promise(doAdd)
+}
+//---------------------
+// Executing side (Executing Promises)
+function resolvedCallback(data) {
+  console.log('Resolved with data ' +  data)
 }
 
-const yourName = 'Your Name' 
+function rejectedCallback(message) {
+  console.log('Rejected with message ' + message)
+}
 
-console.log('Before setTimeout')
+const p = lazyAdd(3, 4)
+// p is a Promise instance that has not yet been settled
+// There will be no console output at this point.
 
-setTimeout(() => {
-    sayHello(yourName)
-  }, 2000
-)
+// This next line will settle the doAdd function
+p.then(resolvedCallback, rejectedCallback)
+// There will be some console output now
 
-console.log('After setTimeout')
+lazyAdd("nan", "alsonan").then(resolvedCallback, rejectedCallback)
