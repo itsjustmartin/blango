@@ -31,7 +31,7 @@ schema_view = get_schema_view(
 router = DefaultRouter()
 router.register("tags", TagViewSet)
 # a router generates, named? We could customize this by providing a basename
-router.register("posts", PostViewSet)
+router.register("posts", PostViewSet) # this generate post-list url and url name
 
 urlpatterns += [
     path("auth/", include("rest_framework.urls")),
