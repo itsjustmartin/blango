@@ -7,6 +7,7 @@
 #
 Django
 django-crispy-forms
+crispy-bootstrap5
 django-filter
 djangorestframework
 Markdown
@@ -23,18 +24,23 @@ django-debug-toolbar
 
 django-allauth
 
+drf_yasg
+
 django-registration
 
 django-filter
 
-djangorestframework-simplejwt PyJWT==1.7.1
+djangorestframework-simplejwt 
+
+PyJWT==1.7.1
 
 django-versatileimagefield
 
 #Windows
-#libmagic
-#macOS
-#python-magic-bin==0.4.1
+# pip install python-magic-bin==0.4.1#macOS
+# python-magic-bin==0.4.
+# macOS
+# brew install libmagic
 
 # If you want to use MySQL, and are not running on PythonAnywhere,
 # uncomment the following line you might need to install pre-requisite
