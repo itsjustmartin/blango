@@ -37,7 +37,8 @@ PyJWT==1.7.1
 django-versatileimagefield
 
 #Windows
-# pip install python-magic-bin==0.4.1#macOS
+# pip install python-magic-bin
+#macOS
 # python-magic-bin==0.4.
 # macOS
 # brew install libmagic

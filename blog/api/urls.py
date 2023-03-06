@@ -15,6 +15,7 @@ urlpatterns = [
     path("users/<str:email>", UserDetail.as_view(), name="api_user_detail"),
 ]
 
+# fix it from .json to a para query /post/?format=json to implement good  API rools
 urlpatterns = format_suffix_patterns(urlpatterns)
 
 # SWAGGER
